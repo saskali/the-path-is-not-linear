@@ -1,3 +1,11 @@
 h1 {
   text-decoration: underline;
 }
+
+#app {
+  height: 800px;
+}
+
+#map {
+  height: 800px;
+}

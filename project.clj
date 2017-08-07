@@ -16,7 +16,10 @@
                  [com.stuartsierra/component "0.3.2"]
                  [org.danielsz/system "0.4.0"]
                  [org.clojure/tools.namespace "0.2.11"]
-                 [reagent "0.6.0"]]
+                 [com.andrewmcveigh/cljs-time "0.5.0"]
+                 [cljsjs/google-maps "3.18-1"]
+                 [reagent "0.6.0"]
+                 [re-frame "0.8.0"]]
 
   :plugins [[lein-cljsbuild "1.1.6"]
             [lein-environ "1.1.0"]]
@@ -102,12 +105,15 @@
                              [com.cemerick/piggieback "0.2.2"]
                              [org.clojure/tools.nrepl "0.2.13"]
                              [lein-doo "0.1.7"]
-                             [reloaded.repl "0.2.3"]]
+                             [reloaded.repl "0.2.3"]
+                             [day8.re-frame/trace "0.1.0"]]
 
               :plugins [[lein-figwheel "0.5.11"]
                         [lein-doo "0.1.7"]]
 
               :source-paths ["dev"]
+              :compiler {:closure-defines {"re_frame.trace.trace_enabled_QMARK_" true}
+                         :preloads [day8.re-frame.trace.preload]}
               :repl-options {:nrepl-middleware [cemerick.piggieback/wrap-cljs-repl]}}
 
              :uberjar
